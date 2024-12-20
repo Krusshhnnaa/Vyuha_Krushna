@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --background: #ffffff;
+            --foreground: #000000;
+            --card: #ffffff;
+            --card-foreground: #000000;
+            --popover: #ffffff;
+            --popover-foreground: #000000;
+            --primary: #000000;
+            --primary-foreground: #ffffff;
+            --secondary: #f1f5f9;
+            --secondary-foreground: #0f172a;
+            --muted: #f1f5f9;
+            --muted-foreground: #64748b;
+            --accent: #f1f5f9;
+            --accent-foreground: #0f172a;
+            --destructive: #ff0000;
+            --destructive-foreground: #ffffff;
+            --border: #e2e8f0;
+            --input: #e2e8f0;
+            --ring: #94a3b8;
+            --radius: 0.5rem;
+        }
+
+        .dark {
+            --background: #0f172a;
+            --foreground: #ffffff;
+            --card: #1e293b;
+            --card-foreground: #ffffff;
+            --popover: #1e293b;
+            --popover-foreground: #ffffff;
+            --primary: #ffffff;
+            --primary-foreground: #0f172a;
+            --secondary: #1e293b;
+            --secondary-foreground: #ffffff;
+            --muted: #1e293b;
+            --muted-foreground: #94a3b8;
+            --accent: #1e293b;
+            --accent-foreground: #ffffff;
+            --destructive: #ff0000;
+            --destructive-foreground: #ffffff;
+            --border: #1e293b;
+            --input: #1e293b;
+            --ring: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--primary-foreground);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            background-color: transparent;
+            color: var(--foreground);
+        }
+
+        .card {
+            background-color: var(--card);
+            border-radius: var(--radius);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            transition: all 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: var(--muted);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: var(--muted-foreground);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background-color: var(--secondary);
+            color: var(--secondary-foreground);
+        }
+
+        /* Default light mode styling for contract */
+#contract {
+    background-color: var(--card);
+    color: var(--foreground);
+    padding: 1.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode styling for contract */
+.dark #contract {
+    background-color: #1e293b; /* Dark background for the contract */
+    color: #ffffff; /* White text to contrast with the dark background */
+    border: 1px solid #64748b; /* Optional: border for better definition */
+}
+
+.dark #contract button {
+    background-color: #334155; /* Dark button background */
+    color: #ffffff; /* White text on buttons */
+}
+
+.dark #contract h1, .dark #contract p {
+    color: #ffffff; /* Explicit white text for headings and paragraphs */
+}
+
+    </style>
+</head>
+<body class="min-h-screen flex">
+<!-- Sidebar -->
+<aside class="w-64 bg-black text-white border-r border-border">
+    <div class="p-4 flex items-center gap-2">
+        <div class="h-8 w-8 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold">
+            T
+        </div>
+        <span class="font-semibold">Ram Ram</span>
+    </div>
+
+    <div class="p-4">
+        <button class="btn w-full flex items-center gap-2 bg-gray-800 text-white hover:bg-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+            Add New
+        </button>
+    </div>
+
+    <nav class="px-4 space-y-6">
+        <div>
+            <p class="text-xs font-semibold text-muted-foreground mb-2">PAGES</p>
+            <div class="space-y-1">
+                <button class="btn w-full justify-start gap-2 hover:bg-blue-900 hover:text-white transition duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Home
+                </button>
+                <button class="btn w-full justify-start gap-2 hover:bg-blue-800 hover:text-white transition duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                        <path d="M16 2H8a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"></path>
+                        <line x1="9" y1="8" x2="15" y2="8"></line>
+                        <line x1="9" y1="12" x2="15" y2="12"></line>
+                        <line x1="9" y1="16" x2="13" y2="16"></line>
+                    </svg>
+                    Contract
+                </button>
+                <button class="btn w-full justify-start gap-2 hover:bg-blue-700 hover:text-white transition duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Connect
+                </button>
+                <button class="btn w-full justify-start gap-2 hover:bg-blue-600 hover:text-white transition duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                        <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                    Public Profile
+                </button>
+                <button class="btn w-full justify-start gap-2 hover:bg-blue-500 hover:text-white transition duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                        <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                    Authentication
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+</aside>
+
+
+    <!-- Main Content -->
+    <main class="flex-1">
+        <div class="border-b border-border">
+            <div class="flex justify-between items-center px-6 py-4">
+                <div>
+                    <h1 class="text-xl font-semibold">Teams</h1>
+                    <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                        <span>Home</span>
+                        <span>/</span>
+                        <span>Contract</span>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="btn btn-outline">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-2"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        Export
+                    </button>
+                    <button class="btn btn-outline">
+                        <span id="currentDate"></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 ml-2"><path d="m6 9 6 6 6-6"></path></svg>
+                    </button>
+                    <button id="themeToggle" class="btn btn-outline">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <main class="flex-1">
+            <div id="contract" class="mx-6 my-4">
+                <img src="company-logo.png" alt="Company Logo" class="h-12 mb-4">
+                <h1 class="text-2xl font-bold">Gig Worker Contract</h1>
+                <p class="text-sm text-muted-foreground mt-2">Duration: 3 months (Starting January 2024)</p>
+                <p class="mt-4">
+                    Welcome to our team! By applying for this position, you agree to the terms and conditions outlined below.
+                </p>
+                <ul class="list-disc list-inside mt-4">
+                    <li>Maintain confidentiality regarding project details.</li>
+                    <li>Commit to deliverables within specified deadlines.</li>
+                    <li>Adhere to company policies and standards.</li>
+                </ul>
+                <button id="applyButton" class="btn btn-primary mt-6">Apply</button>
+            </div>
+        </main>
+        
+
+   
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlElement = document.documentElement;
+    
+            if (themeToggle) {
+                themeToggle.addEventListener('click', () => {
+                    htmlElement.classList.toggle('dark');
+                });
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const applyButton = document.getElementById('applyButton');
+
+    applyButton.addEventListener('click', () => {
+        alert('Applied successfully!');
+    });
+});
+
+    </script>
+
+</body>
+</html>
+
+
+
+
